@@ -1,0 +1,7 @@
+main {
+    width: 40rem;
+    height: 20rem;
+    border: 3px solid black;
+    margin: auto;
+    text-align: center;
+}
