@@ -1,7 +1,11 @@
 main {
     width: 40rem;
-    height: 20rem;
+    height: 32rem;
     border: 3px solid black;
     margin: auto;
     text-align: center;
+}
+
+button {
+    margin: 1rem;
 }
