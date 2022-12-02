@@ -1,7 +1,8 @@
+// Erstellen einer Zufallszahl
 let randomNo = Math.floor( Math.random() * 100 );
     console.log(randomNo);
 
-// Zähler für die Anzahl der Versuche und array für bereits geratene Zahlen.
+// >> compareInput() - Zähler für die Anzahl der Versuche und array für bereits geratene Zahlen.
 let noOfGuesses = 0;
 let guessedNumbers = [];
 
@@ -35,15 +36,15 @@ function startGame(){
     button.appendChild(buttonTxt);
 
     //Erstelle eine leere Dialog-Zeile. Diese wird später in der Funktion compareInput() mit Infos an die User gefüllt.
-    const node3 = document.createElement("h1");
+    const node3 = document.createElement("p");
     const textnode3 = document.createTextNode("");
     node3.appendChild(textnode3);
     //Weitere Dialog-Zeile "Bereits geratene Zahlen"
-    const node4 = document.createElement("h1");
+    const node4 = document.createElement("p");
     const textnode4 = document.createTextNode("Bereits geratene Zahlen: ");
     node4.appendChild(textnode4);
     //Weitere Dialog-Zeile "Anzahl der Versuche"
-    const node5 = document.createElement("h1");
+    const node5 = document.createElement("p");
     const textnode5 = document.createTextNode("Anzahl der Versuche: ");
     node5.appendChild(textnode5);
 
@@ -55,26 +56,34 @@ function startGame(){
     document.getElementById("message1").appendChild(node3);
     document.getElementById("message2").appendChild(node4);
     document.getElementById("message3").appendChild(node5);
+
+
 }
 
 function compareInput(){
 
     // Eingegebene Zahl einlesen
     let inputValue = document.getElementById("guess").value;
-
+    // Die drei Dialogzeilen werden in Variablen gespeichert
     let msg1 = document.getElementById("message1");
     let msg2 = document.getElementById("message2");
-    let msg3 = document.getElementById("message3"); 
+    let msg3 = document.getElementById("message3");
+    // 
+    
 
         if (inputValue>100 || inputValue<0){
-            alert("Deine Eingabe ist ungültig. Bitte eine Zahl zwischen 0-100 eingeben.");
+                alert("Deine Eingabe ist ungültig. Bitte eine Zahl zwischen 0-100 eingeben.");
         }
-        else
+        else if 
+            (!inputValue){
+                msg1.textContent = "Bitte eine Zahl eingeben.";
+        }
+        else{
             guessedNumbers.push(inputValue);
             noOfGuesses+= 1;
-            
+                    
             if (inputValue<randomNo){
-                msg1.textContent = "Dein Tipp ist zu niedrig. Gib eine höhere Zahl ein."
+                msg1.textContent = "Dein Tipp ist zu niedrig. Gib eine höhere Zahl ein.";
                 msg2.textContent = "Bereits geratene Zahlen: " + guessedNumbers;
                 msg3.textContent = "Anzahl der Versuche: " + noOfGuesses;
             }
@@ -87,10 +96,22 @@ function compareInput(){
                 msg1.textContent = "Dein Tipp ist richtig. Glückwunsch, du hast gewonnen!"
                 msg2.textContent = "Die richtige Zahl war die " + inputValue + ".";
                 msg3.textContent = "Du hast insgesamt " + noOfGuesses + " Versuche benötigt.";
-        }
+            }
             else {
                 console.log("Dieser Fall war nicht vorgesehen")
+            }
         }
             
+          
    // document.getElementById("eingabe").reset();
 }
+
+let inputField1 = document.getElementById("eingabe");
+inputField1.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("btn-ok").click();
+    }});
+
+let start = document.querySelector('button');
+start.addEventListener("click", startGame);
