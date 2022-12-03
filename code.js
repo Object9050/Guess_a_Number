@@ -78,7 +78,7 @@ function startGame(){
     /////// Spielfeld aufbauen
     // Neue Text-Elemente erstellen. Info an User.
     createElement("h3", {"textContent":"Eine Zahl zwischen 0 und 100 wurde zufällig ausgewählt.", "id":"info1"});
-    createElement("h3", {"textContent":"Gib deinen Tipp im Kästchen ein und drücke 'OK'", "id":"info2"});
+    createElement("h3", {"innerHTML":"Gib deinen Tipp im Kästchen ein und<br/>drücke 'OK' oder 'Enter'", "id":"info2"});
 
     // Erstelle Input Feld mit Typ Zahlen.
     createElement("input", {"type":"number", "id": "guess"});
