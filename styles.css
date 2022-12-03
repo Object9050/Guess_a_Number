@@ -1,11 +1,15 @@
 main {
     width: 40rem;
-    height: 32rem;
+    height: 26rem;
     border: 3px solid black;
     margin: auto;
     text-align: center;
 }
 
 button {
+    margin: 2rem;
+}
+
+#ok-btn {
     margin: 1rem;
 }
