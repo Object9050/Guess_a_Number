@@ -33,14 +33,14 @@ function randomNumGen(){
         document.body.appendChild(loesung); */
         return randomNum;
     }
-// Funktion zum Zurücksetzen der globalen Variablen
+// Funktion zum Zurücksetzen der globalen Variablen und zur Erstellung d. Zufallszahl
 // Wird zum Neustart des Spiels benötigt
 function resetGlobalVariables(){
     randomNum = randomNumGen();
     numOfGuesses = 0
     guessedNumbers = [];
 }
-// Initiales Zurücksetzen der globalen Variablen
+// Initiales Zurücksetzen der globalen Variablen und Erstellung Zufallszahl
 resetGlobalVariables();
 // Ersetzt, falls vorhanden, den "Start"-Knopf durch einen "Neu starten"-Knopf.
 // Setzt außerdem die globalen Variablen zurück. Wird bei Erraten der richtigen Zahl ausgeführt.
@@ -154,7 +154,7 @@ function compareInput(){
         else{
             guessedNumbers.push(" " + inputValue);
             numOfGuesses++;
-                    
+                            
             if (inputValue<randomNum){
                 msg1.textContent = "Dein Tipp ist zu niedrig. Gib eine höhere Zahl ein.";
                 msg2.textContent = "Bereits geratene Zahlen: [" + guessedNumbers + " ]";
